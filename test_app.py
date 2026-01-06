@@ -1,11 +1,13 @@
 import pytest
-from app import app as flask_app
+import app as my_app_module
 
 @pytest.fixture
 def client():
-  flask_app.config['TESTING'] = True
+  test_app = my_app_module.app
 
-  with flask_app.test_client() as client:
+  test_app.config['TESTING'] = True
+
+  with test_app.test_client() as client:
     yield client
 
 def test_homepage(client):
