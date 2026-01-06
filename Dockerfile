@@ -1,11 +1,21 @@
-FROM python:3.9-slim
+# 1
+
+FROM python:3.13-slim AS builder
 
 WORKDIR /app
 
-COPY app/requirements.txt requirements.txt
+COPY app/requirements.txt .
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 2
+
+FROM python:3.13-slim
+
+WORKDIR /app
+
+COPY --from=builder /usr/local /usr/local
 
 COPY /app .
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python", "app.py"]
