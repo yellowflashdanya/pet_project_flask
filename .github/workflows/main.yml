@@ -18,6 +18,8 @@ jobs:
           python-version: '3.13'
       - name: Install dependencies
         run: pip install -r app/requirements.txt
+      - name: Lint with flake8
+        run: flake8 . --count --max-line-length=127
       - name: Run tests
         env:
           TESTING: True
