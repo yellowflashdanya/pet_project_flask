@@ -5,12 +5,8 @@ import os
 
 app = Flask(__name__)
 
-if os.environ.get("TESTING") == "True":
-    class FakeRedis:
-        def incr(self, key): return 1
-    cache = FakeRedis()
-else:
-    cache = redis.Redis(host='redis', port=6379)
+redis_host = os.environ.get("REDIS_HOST", "redis")
+cache = redis.Redis(host=redis_host, port=6379)
 
 
 def get_hit_count():
