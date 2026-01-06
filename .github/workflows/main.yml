@@ -28,6 +28,7 @@ jobs:
       - name: Run tests
         env:
           TESTING: True
+          REDIS_HOST: localhost
         run: |
           export PYTHONPATH=.
           pytest
