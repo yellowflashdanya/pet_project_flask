@@ -1,13 +1,15 @@
 import pytest
-import app as my_app_module
+import os
+
+os.environ["TESTING"] = "True"
+
+from app.app import app as flask_app
 
 @pytest.fixture
 def client():
-  test_app = my_app_module.app
+  flask_app.config['TESTING'] = True
 
-  test_app.config['TESTING'] = True
-
-  with test_app.test_client() as client:
+  with flask_app.test_client() as client:
     yield client
 
 def test_homepage(client):
