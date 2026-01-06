@@ -1,9 +1,16 @@
 import time
 import redis
 from flask import Flask
+import os
 
 app = Flask(__name__)
-cache = redis.Redis(host='redis', port=6379)
+
+if os.environ.get("TESTING") == "True":
+  class FakeRedis:
+    def incr(self, key): return 1
+  cache = FakeRedis()
+else:
+  cache = redis.Redis(host='redis', port=6379)
 
 def get_hit_count():
   retries = 5
