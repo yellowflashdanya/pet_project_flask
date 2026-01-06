@@ -2,13 +2,13 @@
 
 [![CI to Docker Hub](https://github.com/yellowflashdanya/devops_practice/actions/workflows/main.yml/badge.svg)](https://github.com/yellowflashdanya/devops_practice/actions)
 
-This is an educational project that shows, which demonstrates the Python-app in action with Redis database, automatic with Docker-Compose
+This is an educational project that demonstrates the Python app in action with Redis database, automatic with Docker-Compose & CI pipeline
 
 ## Stack:
 * **Language:** Python 3.9 (Flask)
 * **Database:** Redis (Alpine version)
 * **Conteinerization:** Docker + Docker Compose
-* **CI/CD:** GitHub Actions (in process...)
+* **CI:** GitHub Actions (Automated CI)
 
 ## Project Architecture and Features:
 
