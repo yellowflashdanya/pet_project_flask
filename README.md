@@ -22,8 +22,10 @@ Educational DevOps project demonstrating a production-ready approach to containe
 
 ### Option A: Using Terraform (IaC Demo):
 
-1. Initialize Terraform:
+1. Clone the repo & Initialize Terraform:
   ```bash
+  git clone [https://github.com/yellowflashdanya/pet_project_flask.git](https://github.com/yellowflashdanya/pet_project_flask.git)
+  cd pet_project_flask
   terraform init
   ```
 
