@@ -36,7 +36,9 @@ Educational DevOps project demonstrating a production-ready approach to containe
 
 ### Option B: Using Docker Compose:
 
-1. docker-compose up --build
+1. ```bash
+   docker-compose up --build
+   ```
 
 ## Architecture Details:
 
