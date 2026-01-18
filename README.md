@@ -1,44 +1,46 @@
-# Flask counter with Redis & CI pipeline 🚀
+# Flask counter with Redis & HealthChecks & Infrastructure as Code (Terraform) 🚀
 
-[![CI to Docker Hub](https://github.com/yellowflashdanya/devops_practice/actions/workflows/main.yml/badge.svg)](https://github.com/yellowflashdanya/devops_practice/actions)
+[![CI to Docker Hub](https://github.com/yellowflashdanya/pet_project_flask/actions/workflows/main.yml/badge.svg)](https://github.com/yellowflashdanya/pet_project_flask/actions)
 
-This is an educational project that demonstrates the Python app in action with Redis database, automatic with Docker-Compose & CI pipeline
+Educational DevOps project demonstrating a production-ready approach to containerization and infrastructure management.
 
 ## Stack:
 * **Language:** Python 3.9 (Flask)
-* **Database:** Redis (Alpine version)
-* **Conteinerization:** Docker + Docker Compose
-* **CI:** GitHub Actions (Automated CI)
+* **Database:** Redis (Alpine)
+* **Infrastructure:** Terraform (IaC), Docker Compose
+* **CI/CD:** GitHub Actions
+* **Monitoring:** In process...
 
-## Project Architecture and Features:
+## Key features:
 
-* **web**: Flask-app, which processes HTTP-requests and interacts with Redis;
-* **redis**: Storage that contains data with type key-value and for saving the counter of visiting;
-* **containerization**: The app is totally containerized with Docker-containers;
-* **automated ci pipeline**: Configured pipeline, which automatically logs in Docker Hub, build image and push it after every branch update `main`.
+* **Infrastructure as Code (IaC):** Full environment setup using **Terraform**, including isolated network and container lifecycle.
+* **Resilience:** Configured **Healthchecks** to ensure the web app only starts when Redis is ready.
+* **Persistence:** Docker Volumes are used to prevent data loss after container restarts.
+* **Automated CI:** Every push to `main` branch triggers an automated build and push to DockerHub.
 
-## 🚀 How to run locally:
+## 🚀 How to Run:
 
-To run this project locally, two things you need to be installed - **Docker** and **Docker Compose**.
+### Option A: Using Terraform (IaC Demo):
 
-1. Clone the repo:
+1. Initialize Terraform:
   ```bash
-  git clone https://github.com/yellowflashdanya/devops_practice.git
-  cd devops_practice
+  terraform init
   ```
 
-2. Run project by 1 command:
+2. Apply infrastructure:
   ```bash
-  docker-compose up --build
+  terraform apply
   ```
 
-3. Open in browser:
-  http://localhost:5001
+### Option B: Using Docker Compose:
 
-## 📦 Docker Registry
-My builded image automatically publish at Docker Hub. You can find it via link or download using ONE command:
+1. docker-compose up --build
 
-* **Link for the repository**: [hub.docker.com/r/danyakube/counter-app](https://hub.docker.com/r/danyakube/counter-app)
+## Architecture Details:
+
+* **Network:** Isolated bridge network for secure inter-container communication;
+* **Port mapping:** `localhost:5001` (Docker Compose) / `localhost:5003` (Terraform)
+* **Registry:** Images are stored at [hub.docker.com/r/danyakube/counter-app](https://hub.docker.com/r/danyakube/counter-app)
 * **Command to download the image**:
 ```bash
 docker pull danyakube/counter-app:latest
