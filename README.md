@@ -10,7 +10,10 @@ Educational DevOps project demonstrating the evolution from simple containerizat
 * **Orchestration:** **Kubernetes (Minikube)**
 * **Infrastructure:** Terraform (IaC), Docker Compose
 * **CI/CD:** GitHub Actions
-* **Monitoring:** In process... (Prometheus & Grafana)
+* **Monitoring**: Prometheus & Grafana (Helm)
+
+### Monitoring and Health overview:
+![Grafana Dashboard](./screenshots/grafana-dashboard.png)
 
 ## Key features:
 
